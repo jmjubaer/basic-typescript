@@ -30,7 +30,7 @@ const OBJECT_TYPES: {
     name: "jm"; // string literal type
     age: number;
     isMarried?: boolean; // optional type
-    readonly nationality: string; // literal type: literal type can not reassign or change
+    readonly nationality: string; // readonly type: readonly type can not reassign or change
 } = {
     name: "jm",
     nationality: "American",
