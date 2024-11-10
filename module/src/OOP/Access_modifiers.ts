@@ -5,7 +5,7 @@ class BankAccount {
     readonly id: number; // readonly is never changeable after its define
     name: string;
     protected balance: number; // protected is only accessible within the class and its child class.
-    private transactions: number[] = []; // private is only accessible within the class
+    private _transactions: number[] = []; // private is only accessible within the class. private value name is start with "_" its naming convention.
 
     constructor(
         id: number,
@@ -16,11 +16,11 @@ class BankAccount {
         this.id = id;
         this.name = name;
         this.balance = balance;
-        this.transactions = transactions;
+        this._transactions = transactions;
     }
 
     makeTransaction(amount: number) {
-        this.transactions.push(amount);
+        this._transactions.push(amount);
     }
 }
 class HandleBalance extends BankAccount {
@@ -28,9 +28,9 @@ class HandleBalance extends BankAccount {
         id: number,
         name: string,
         balance: number,
-        transactions: number[]
+        _transactions: number[]
     ) {
-        super(id, name, balance, transactions);
+        super(id, name, balance, _transactions);
     }
     addBalance(amount: number) {
         this.balance += amount;
